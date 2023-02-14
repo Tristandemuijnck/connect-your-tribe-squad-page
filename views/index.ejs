@@ -1,17 +1,25 @@
 <%- include ('./partials/head') %>
 
 <aside class="controls">
-    <!-- Filters section -->
-    <div class="filters">
+    <!-- Controls heading -->
+    <div class="controls-heading">
         <div class="filter-heading">
             <img src="./assets/filter.svg" alt="Filter icon" class="filter-svg">
             <h1>Filters</h1>
         </div>
 
-        <!-- Filter menu - Collapsed on mobile -->
-        <div class="filter-options">
+        <!-- Search bar -->
+        <div class="search">
+            <input class="input-search" type="search" name="search" id="search" placeholder="Search">
+            <label for="search"><img src="./assets/mag.svg" alt="Search button" class="mag-svg"></label>
+        </div>
+    </div>
 
-            <!-- Filter item -->
+    <!-- Filter menu - Collapsed on mobile -->
+    <div class="filter-options">
+
+        <!-- Filter category -->
+        <div class="filter-category">
             <h2>Squad:</h2>
             <ul class="filter-item">
                 <li>
@@ -33,8 +41,10 @@
                     </div>
                 </li>
             </ul>
+        </div>
 
-            <!-- Filter item -->
+        <!-- Filter category -->
+        <div class="filter-category">
             <h2>Role:</h2>
             <ul class="filter-item">
                 <li>
@@ -56,20 +66,22 @@
                     </div>
                 </li>
             </ul>
+        </div>
 
-            <!-- Filter item -->
+        <!-- Filter category -->
+        <div class="filter-category">
             <h2>Stars:</h2>
             <ul class="filter-item">
                 <li>
                     <div class="filter-option">
                         <input type="checkbox" name="stars" id="starLow">
-                        <label for="starLow">0-3</label>
+                        <label for="starLow">0 - 3</label>
                     </div>
                 </li>
                 <li>
                     <div class="filter-option">
                         <input type="checkbox" name="stars" id="starMid">
-                        <label for="starMid">4-7</label>
+                        <label for="starMid">4 - 7</label>
                     </div>
                 </li>
                 <li>
@@ -79,8 +91,10 @@
                     </div>
                 </li>
             </ul>
+        </div>
 
-            <!-- Filter item -->
+        <!-- Filter category -->
+        <div class="filter-category">
             <h2>Cohort:</h2>
             <ul class="filter-item">
                 <li>
@@ -96,54 +110,20 @@
                     </div>
                 </li>
             </ul>
-
-            <!-- Filter item -->
-            <h2>Sort by:</h2>
-            <ul class="filter-item">
-                <li>
-                    <div class="filter-option">
-                        <input type="checkbox" name="sortby" id="name-AZ">
-                        <label for="name-AZ">Name A-Z</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="filter-option">
-                        <input type="checkbox" name="sortby" id="name-ZA">
-                        <label for="name-ZA">Name Z-A</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="filter-option">
-                        <input type="checkbox" name="sortby" id="likes-ASC">
-                        <label for="likes-ASC">Likes ASC</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="filter-option">
-                        <input type="checkbox" name="sortby" id="likes-DESC">
-                        <label for="likes-DESC">Likes DESC</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="filter-option">
-                        <input type="checkbox" name="sortby" id="stars-ASC">
-                        <label for="stars-ASC">Stars ASC</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="filter-option">
-                        <input type="checkbox" name="sortby" id="stars-DESC">
-                        <label for="stars-DESC">Stars DESC</label>
-                    </div>
-                </li>
-            </ul>
         </div>
-    </div>
 
-    <!-- Search bar -->
-    <div class="search">
-        <input class="input-search" type="search" name="search" id="search" placeholder="Search">
-        <label for="search"><img src="./assets/mag.svg" alt="Search button" class="mag-svg"></label>
+        <!-- Filter category -->
+        <div class="filter-category">
+            <h2>Sort by:</h2>
+            <select name="sorting" id="sorting">
+                <option value="name-AZ">Name (A-Z)</option>
+                <option value="name-ZA">Name (Z-A)</option>
+                <option value="likes-ASC">Likes (ASC)</option>
+                <option value="likes-DESC">Likes (DESC)</option>
+                <option value="stars-ASC">Stars (ASC)</option>
+                <option value="stars-DESC">Stars (DESC)</option>
+            </select>
+        </div>
     </div>
 </aside>
 
@@ -151,6 +131,40 @@
     <!-- Cards collection -->
     <section class="cards">
         <!-- Individual cards -->
+        <div class="card">
+            <div class="img-card">
+                <img src="https://via.placeholder.com/500" alt="" class="card-image">
+                <div class="subinfo">
+                    <p class="name">Tristan de Muijnck</p>
+                    <p>Amsterdam</p>
+                    <p>21</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="likes">
+                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
+                    <p class="like-count">6</p>
+                </div>
+                <div class="tags">
+                    <div class="tag">
+                        <p>Squat C</p>
+                    </div>
+                    <div class="tag">
+                        <p>Student</p>
+                    </div>
+                    <div class="tag">
+                        <div class="stars">
+                            <p>3</p>
+                            <img src="./assets/star.svg" alt="Star icon" class="star">
+                        </div>
+                    </div>
+                    <div class="tag">
+                        <p>2022</p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
         <div class="card">
             <div class="img-card">
                 <img src="https://via.placeholder.com/500" alt="" class="card-image">
