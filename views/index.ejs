@@ -1,5 +1,167 @@
 <%- include ('./partials/head') %>
 
-test
+<aside>
+    <div class="filters">
+        <img src="./assets/filter.svg" alt="Filter icon" class="filter-svg">
+        <h1>Filters</h1>
+        <div class="filter-options">
+            <h2>Squad:</h2>
+            <ul class="filter-item">
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="squad" id="squadA">
+                        <label for="squadA">Squad A</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="squad" id="squadB">
+                        <label for="squadB">Squad B</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="squad" id="squatC">
+                        <label for="squatC">Squat C</label>
+                    </div>
+                </li>
+            </ul>
+
+            <h2>Role:</h2>
+            <ul class="filter-item">
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="role" id="student">
+                        <label for="student">Student</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="role" id="lecturer">
+                        <label for="lecturer">Lecturer</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="role" id="co-teacher">
+                        <label for="co-teacher">Co-teacher</label>
+                    </div>
+                </li>
+            </ul>
+
+            <h2>Stars:</h2>
+            <ul class="filter-item">
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="stars" id="starLow">
+                        <label for="starLow">0-3</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="stars" id="starMid">
+                        <label for="starMid">4-7</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="stars" id="starHigh">
+                        <label for="starHigh">8 ></label>
+                    </div>
+                </li>
+            </ul>
+
+            <h2>Cohort:</h2>
+            <ul class="filter-item">
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="cohort" id="cohortFirst">
+                        <label for="starLow">2021</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="cohort" id="cohortSecond">
+                        <label for="starMid">2022</label>
+                    </div>
+                </li>
+            </ul>
+
+            <h2>Sort by:</h2>
+            <ul class="filter-item">
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="sortby" id="name-AZ">
+                        <label for="name-AZ">Name A-Z</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="sortby" id="name-ZA">
+                        <label for="name-ZA">Name Z-A</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="sortby" id="likes-ASC">
+                        <label for="likes-ASC">Likes ASC</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="sortby" id="likes-DESC">
+                        <label for="likes-DESC">Likes DESC</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="sortby" id="stars-ASC">
+                        <label for="stars-ASC">Stars ASC</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-option">
+                        <input type="checkbox" name="sortby" id="stars-DESC">
+                        <label for="stars-DESC">Stars DESC</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="search">
+        <p>Search</p>
+        <img src="./assets/mag.svg" alt="" class="mag-svg">
+    </div>
+</aside>
+
+<main>
+    <section class="cards">
+        <div class="card">
+            <div class="img-card">
+                <img src="" alt="" class="card-image">
+                <div class="subinfo">
+                    <p>Tristan de Muijnck</p>
+                    <p>Amsterdam</p>
+                    <p>21</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="likes">
+                    <img src="./assets/thumb.svg" alt="" class="thumb">
+                    <p class="like-count">6</p>
+                </div>
+                <div class="tags">
+                    <p>Squat C</p>
+                    <p>Student</p>
+                    <div class="stars">
+                        <p>3</p>
+                        <img src="./assets/star.svg" alt="" class="star">
+                    </div>
+                    <p>2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 <%- include ('./partials/foot') %>
