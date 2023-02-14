@@ -1,0 +1,37 @@
+:root{
+    --teal: #3dd1b9;
+    --dark-teal: #344B46;
+    --grey: #97b1aa;
+    --pink: #e1a7f1;
+    --purple: #a873b9;
+
+    /* #1998A2 */
+    /* #2E6174 */
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* General */
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font: 100%/1.4 "Open Sans", sans-serif;
+    background: linear-gradient(to right bottom, #3dd1b9, #30c6b7, #24bcb3, #1cb1af, #18a6aa, #189da5, #1b939f, #1f8a98, #248090, #287587, #2c6b7e, #2e6174);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
