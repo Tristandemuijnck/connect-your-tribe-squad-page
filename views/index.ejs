@@ -1,10 +1,15 @@
 <%- include ('./partials/head') %>
 
 <aside>
+    <!-- Filters section -->
     <div class="filters">
         <img src="./assets/filter.svg" alt="Filter icon" class="filter-svg">
         <h1>Filters</h1>
+
+        <!-- Filter menu - Collapsed on mobile -->
         <div class="filter-options">
+
+            <!-- Filter item -->
             <h2>Squad:</h2>
             <ul class="filter-item">
                 <li>
@@ -27,6 +32,7 @@
                 </li>
             </ul>
 
+            <!-- Filter item -->
             <h2>Role:</h2>
             <ul class="filter-item">
                 <li>
@@ -49,6 +55,7 @@
                 </li>
             </ul>
 
+            <!-- Filter item -->
             <h2>Stars:</h2>
             <ul class="filter-item">
                 <li>
@@ -71,6 +78,7 @@
                 </li>
             </ul>
 
+            <!-- Filter item -->
             <h2>Cohort:</h2>
             <ul class="filter-item">
                 <li>
@@ -87,6 +95,7 @@
                 </li>
             </ul>
 
+            <!-- Filter item -->
             <h2>Sort by:</h2>
             <ul class="filter-item">
                 <li>
@@ -128,9 +137,11 @@
             </ul>
         </div>
     </div>
+
+    <!-- Search bar -->
     <div class="search">
-        <p>Search</p>
-        <img src="./assets/mag.svg" alt="" class="mag-svg">
+        <input type="search" name="search" id="search" placeholder="Search">
+        <label for="search"><img src="./assets/mag.svg" alt="Search button" class="mag-svg"></label>
     </div>
 </aside>
 
@@ -147,7 +158,7 @@
             </div>
             <div class="info">
                 <div class="likes">
-                    <img src="./assets/thumb.svg" alt="" class="thumb">
+                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
                     <p class="like-count">6</p>
                 </div>
                 <div class="tags">
@@ -155,7 +166,7 @@
                     <p>Student</p>
                     <div class="stars">
                         <p>3</p>
-                        <img src="./assets/star.svg" alt="" class="star">
+                        <img src="./assets/star.svg" alt="Star icon" class="star">
                     </div>
                     <p>2022</p>
                 </div>
