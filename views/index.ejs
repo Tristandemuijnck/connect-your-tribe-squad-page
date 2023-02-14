@@ -1,10 +1,12 @@
 <%- include ('./partials/head') %>
 
-<aside>
+<aside class="controls">
     <!-- Filters section -->
     <div class="filters">
-        <img src="./assets/filter.svg" alt="Filter icon" class="filter-svg">
-        <h1>Filters</h1>
+        <div class="filter-heading">
+            <img src="./assets/filter.svg" alt="Filter icon" class="filter-svg">
+            <h1>Filters</h1>
+        </div>
 
         <!-- Filter menu - Collapsed on mobile -->
         <div class="filter-options">
@@ -140,18 +142,20 @@
 
     <!-- Search bar -->
     <div class="search">
-        <input type="search" name="search" id="search" placeholder="Search">
+        <input class="input-search" type="search" name="search" id="search" placeholder="Search">
         <label for="search"><img src="./assets/mag.svg" alt="Search button" class="mag-svg"></label>
     </div>
 </aside>
 
 <main>
+    <!-- Cards collection -->
     <section class="cards">
+        <!-- Individual cards -->
         <div class="card">
             <div class="img-card">
-                <img src="" alt="" class="card-image">
+                <img src="https://via.placeholder.com/500" alt="" class="card-image">
                 <div class="subinfo">
-                    <p>Tristan de Muijnck</p>
+                    <p class="name">Tristan de Muijnck</p>
                     <p>Amsterdam</p>
                     <p>21</p>
                 </div>
@@ -162,13 +166,89 @@
                     <p class="like-count">6</p>
                 </div>
                 <div class="tags">
-                    <p>Squat C</p>
-                    <p>Student</p>
-                    <div class="stars">
-                        <p>3</p>
-                        <img src="./assets/star.svg" alt="Star icon" class="star">
+                    <div class="tag">
+                        <p>Squat C</p>
                     </div>
-                    <p>2022</p>
+                    <div class="tag">
+                        <p>Student</p>
+                    </div>
+                    <div class="tag">
+                        <div class="stars">
+                            <p>3</p>
+                            <img src="./assets/star.svg" alt="Star icon" class="star">
+                        </div>
+                    </div>
+                    <div class="tag">
+                        <p>2022</p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-card">
+                <img src="https://via.placeholder.com/500" alt="" class="card-image">
+                <div class="subinfo">
+                    <p class="name">Tristan de Muijnck</p>
+                    <p>Amsterdam</p>
+                    <p>21</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="likes">
+                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
+                    <p class="like-count">6</p>
+                </div>
+                <div class="tags">
+                    <div class="tag">
+                        <p>Squat C</p>
+                    </div>
+                    <div class="tag">
+                        <p>Student</p>
+                    </div>
+                    <div class="tag">
+                        <div class="stars">
+                            <p>3</p>
+                            <img src="./assets/star.svg" alt="Star icon" class="star">
+                        </div>
+                    </div>
+                    <div class="tag">
+                        <p>2022</p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-card">
+                <img src="https://via.placeholder.com/500" alt="" class="card-image">
+                <div class="subinfo">
+                    <p class="name">Tristan de Muijnck</p>
+                    <p>Amsterdam</p>
+                    <p>21</p>
+                </div>
+            </div>
+            <div class="info">
+                <div class="likes">
+                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
+                    <p class="like-count">6</p>
+                </div>
+                <div class="tags">
+                    <div class="tag">
+                        <p>Squat C</p>
+                    </div>
+                    <div class="tag">
+                        <p>Student</p>
+                    </div>
+                    <div class="tag">
+                        <div class="stars">
+                            <p>3</p>
+                            <img src="./assets/star.svg" alt="Star icon" class="star">
+                        </div>
+                    </div>
+                    <div class="tag">
+                        <p>2022</p>
+                    </div> 
                 </div>
             </div>
         </div>
