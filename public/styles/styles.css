@@ -104,8 +104,10 @@ body {
 /* Main - Cards */
 .cards{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-bottom: 1em;
+    gap: 0.5em;
 }
 
 .card{
@@ -134,7 +136,7 @@ body {
 
 .subinfo{
     position: absolute;
-    bottom: 5px;
+    bottom: 0;
     left: 0;
     background: rgba(72, 70, 70, 0.55);
     width: 100%;
