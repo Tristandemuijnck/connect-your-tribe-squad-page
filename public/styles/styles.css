@@ -148,9 +148,10 @@ body {
 
 /* Main - Cards */
 .cards{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(19em, 1fr));
+    /* flex-direction: row;
+    flex-wrap: wrap; */
     padding-bottom: 1em;
     gap: 0.5em;
 }
@@ -173,10 +174,12 @@ body {
 }
 
 .card-image{
-    object-fit: fill;
+    object-fit: cover;
     width: 100%;
     height: 100%;
     max-width: 19em;
+    max-height: 19em;
+    aspect-ratio: 1/1;
 }
 
 .subinfo{
@@ -223,7 +226,7 @@ body {
 .tags{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.5em;
     flex-wrap: wrap;
 }

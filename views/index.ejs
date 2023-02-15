@@ -130,142 +130,49 @@
 <main>
     <!-- Cards collection -->
     <section class="cards">
-        <!-- Individual cards -->
-        <div class="card">
-            <div class="img-card">
-                <img src="https://via.placeholder.com/500" alt="" class="card-image">
-                <div class="subinfo">
-                    <p class="name">Tristan de Muijnck</p>
-                    <p>Amsterdam</p>
-                    <p>21</p>
-                </div>
-            </div>
-            <div class="info">
-                <div class="likes">
-                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
-                    <p class="like-count">6</p>
-                </div>
-                <div class="tags">
-                    <div class="tag">
-                        <p>Squat C</p>
-                    </div>
-                    <div class="tag">
-                        <p>Student</p>
-                    </div>
-                    <div class="tag">
-                        <div class="stars">
-                            <p>3</p>
-                            <img src="./assets/star.svg" alt="Star icon" class="star">
-                        </div>
-                    </div>
-                    <div class="tag">
-                        <p>2022</p>
-                    </div> 
-                </div>
-            </div>
-        </div>
 
-        <div class="card">
-            <div class="img-card">
-                <img src="https://via.placeholder.com/500" alt="" class="card-image">
-                <div class="subinfo">
-                    <p class="name">Tristan de Muijnck</p>
-                    <p>Amsterdam</p>
-                    <p>21</p>
-                </div>
-            </div>
-            <div class="info">
-                <div class="likes">
-                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
-                    <p class="like-count">6</p>
-                </div>
-                <div class="tags">
-                    <div class="tag">
-                        <p>Squat C</p>
+        <% data.members.forEach(member => { %>
+            <div class="card">
+                <div class="img-card">
+                    <% 
+                        const avatarUrl = member.avatar
+                        if (avatarUrl !== "null" && avatarUrl) { 
+                    %>
+                        <img src="<%= member.avatar %>" alt="" class="card-image">
+                    <% }else{ %>
+                        <img src="./assets/default.png" alt="" class="card-image">
+                    <% } %>
+                    <div class="subinfo">
+                        <p class="name"><%= member.name %></p>
+                        <p>Woonplaats</p>
+                        <p>Leeftijd</p>
                     </div>
-                    <div class="tag">
-                        <p>Student</p>
+                </div>
+                <div class="info">
+                    <div class="likes">
+                        <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
+                        <p class="like-count">6</p>
                     </div>
-                    <div class="tag">
-                        <div class="stars">
-                            <p>3</p>
-                            <img src="./assets/star.svg" alt="Star icon" class="star">
+                    <div class="tags">
+                        <div class="tag">
+                            <p><%= member.squads[0].name %></p>
                         </div>
-                    </div>
-                    <div class="tag">
-                        <p>2022</p>
-                    </div> 
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="img-card">
-                <img src="https://via.placeholder.com/500" alt="" class="card-image">
-                <div class="subinfo">
-                    <p class="name">Tristan de Muijnck</p>
-                    <p>Amsterdam</p>
-                    <p>21</p>
-                </div>
-            </div>
-            <div class="info">
-                <div class="likes">
-                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
-                    <p class="like-count">6</p>
-                </div>
-                <div class="tags">
-                    <div class="tag">
-                        <p>Squat C</p>
-                    </div>
-                    <div class="tag">
-                        <p>Student</p>
-                    </div>
-                    <div class="tag">
-                        <div class="stars">
-                            <p>3</p>
-                            <img src="./assets/star.svg" alt="Star icon" class="star">
+                        <div class="tag">
+                            <p><%= member.role %></p>
                         </div>
-                    </div>
-                    <div class="tag">
-                        <p>2022</p>
-                    </div> 
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="img-card">
-                <img src="https://via.placeholder.com/500" alt="" class="card-image">
-                <div class="subinfo">
-                    <p class="name">Tristan de Muijnck</p>
-                    <p>Amsterdam</p>
-                    <p>21</p>
-                </div>
-            </div>
-            <div class="info">
-                <div class="likes">
-                    <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
-                    <p class="like-count">6</p>
-                </div>
-                <div class="tags">
-                    <div class="tag">
-                        <p>Squat C</p>
-                    </div>
-                    <div class="tag">
-                        <p>Student</p>
-                    </div>
-                    <div class="tag">
-                        <div class="stars">
-                            <p>3</p>
-                            <img src="./assets/star.svg" alt="Star icon" class="star">
+                        <div class="tag">
+                            <div class="stars">
+                                <p>6</p>
+                                <img src="./assets/star.svg" alt="Star icon" class="star">
+                            </div>
                         </div>
+                        <div class="tag">
+                            <p><%= member.squads[0].cohort %></p>
+                        </div> 
                     </div>
-                    <div class="tag">
-                        <p>2022</p>
-                    </div> 
                 </div>
             </div>
-        </div>
+        <% }) %>
     </section>
 </main>
 
