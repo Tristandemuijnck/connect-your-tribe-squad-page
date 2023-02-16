@@ -51,19 +51,19 @@
                 <ul class="filter-item">
                     <li>
                         <div class="filter-option">
-                            <input type="checkbox" name="role" id="student">
+                            <input type="checkbox" name="role" id="student" value="student">
                             <label for="student">Student</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="checkbox" name="role" id="lecturer">
+                            <input type="checkbox" name="role" id="lecturer" value="lecturer">
                             <label for="lecturer">Lecturer</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="checkbox" name="role" id="co-teacher">
+                            <input type="checkbox" name="role" id="co-teacher" value="co-teacher">
                             <label for="co-teacher">Co-teacher</label>
                         </div>
                     </li>
@@ -136,7 +136,7 @@
     <!-- Cards collection -->
     <section class="cards">
 
-        <% data.members.forEach(member => { %>
+        <% squad.members.forEach(member => { %>
             <div class="card">
                 <div class="img-card">
                     <% 
@@ -156,7 +156,7 @@
                 <div class="info">
                     <div class="tags">
                         <div class="tag">
-                            <p><%= member.squads[0].name %></p>
+                            <p><%= member.name %></p>
                         </div>
                         <div class="tag">
                             <p><%= member.role %></p>
@@ -171,7 +171,7 @@
                             </div>
                         </div>
                         <div class="tag">
-                            <p><%= member.squads[0].cohort %></p>
+                            <p><%= squad.cohort %></p>
                         </div> 
                     </div>
                 </div>
