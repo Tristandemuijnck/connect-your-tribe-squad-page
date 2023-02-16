@@ -241,6 +241,7 @@ body {
     padding: 0.4em;
     border-radius: 0.6em;
     border: solid 1px var(--teal);
+    text-transform: capitalize;
 }
 
 .tag p{

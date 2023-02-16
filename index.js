@@ -22,7 +22,6 @@ app.get('/', async (req, res) => {
 
     const addonUrl = url + "members?first=100"
     const data = await dataFetch(addonUrl)
-    // const repo = await dataFetch(repos)
 
     data.members.forEach(member => {
         console.log(member.gitHubHandle)

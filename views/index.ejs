@@ -136,7 +136,7 @@
                 <div class="img-card">
                     <% 
                         const avatarUrl = member.avatar
-                        if (avatarUrl !== "null" && avatarUrl) { 
+                        if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[")) { 
                     %>
                         <img src="<%= member.avatar %>" alt="" class="card-image">
                     <% }else{ %>
@@ -149,10 +149,6 @@
                     </div>
                 </div>
                 <div class="info">
-                    <div class="likes">
-                        <img src="./assets/thumb.svg" alt="Like icon" class="thumb">
-                        <p class="like-count">6</p>
-                    </div>
                     <div class="tags">
                         <div class="tag">
                             <p><%= member.squads[0].name %></p>
