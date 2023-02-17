@@ -19,18 +19,9 @@ app.get('/', async (req, res) => {
     const addonUrl = urlMember + "members?first=100"
     const data = await dataFetch(addonUrl)
     
-    // Get github handle for each individual member
     data.members.forEach(member => {
-        const gitHandle = member.gitHubHandle
-        let gitUrl = []
-
-        // Check if github handle is empty or empty
-        if (gitHandle !== "" && gitHandle !== null) {
-            const gitHandleFiltered = gitHandle.replace("https://github.com/", "")
-            gitUrl.push(reposUrl + gitHandleFiltered)
-        }else{
-            gitUrl.push("https://github.com")
-        }
+        // Random number generator
+        member.publicRepos = Math.floor(Math.random() * 20)
     });
 
     res.render('index', { data })
@@ -40,10 +31,13 @@ app.get('/FDND', async (req, res) => {
     let slug = req.query.squad || "squat-c-2022"
     let squadUrl = urlSquad + slug
 
-    dataFetch(squadUrl)
-    .then((data) => {
-        res.render('squads', data)
-    })
+    const data = await dataFetch(squadUrl)
+
+    data.squad.members.forEach(member => {
+        member.publicRepos = Math.floor(Math.random() * 20)
+    });
+
+    res.render('squads', data);
 })
 
 app.post('/filter', async (req, res) => {
@@ -51,8 +45,6 @@ app.post('/filter', async (req, res) => {
     let roleFilter = req.body.role
     let cohortFilter = req.body.cohort
     let sortingFilter = req.body.sorting
-
-    console.log(req.body)
 
     // Check if data is present in checkboxes
     if (req.body.squad !== "") {
@@ -67,8 +59,6 @@ app.post('/filter', async (req, res) => {
     if (req.body.sorting !== ""){
         sortingFilter = "sorting=" + req.body.sorting
     }
-
-    // const filterData = []
 
     res.redirect(303, '/FDND?' + squadFilter)
 })

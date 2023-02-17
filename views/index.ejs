@@ -1,136 +1,6 @@
 <%- include ('./partials/head') %>
 
-<aside class="controls">
-    <!-- Controls heading -->
-    <div class="controls-heading">
-        <div class="filter-heading">
-            <img src="./assets/filter.svg" alt="Filter icon" class="filter-svg">
-            <h1>Filters</h1>
-        </div>
-
-        <!-- Search bar -->
-        <div class="search">
-            <input class="input-search" type="search" name="search" id="search" placeholder="Search">
-            <label for="search"><img src="./assets/mag.svg" alt="Search button" class="mag-svg"></label>
-        </div>
-    </div>
-
-    <!-- Filter menu - Collapsed on mobile -->
-    <div class="filter-options">
-
-        <form action="/filter" method="post">
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Squad:</h2>
-                <ul class="filter-item" id="squad-filter">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="squad" id="squadA" value="squad-a-2022">
-                            <label for="squadA">Squad A</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="squad" id="squadB" value="squad-b-2022">
-                            <label for="squadB">Squad B</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="squad" id="squatC" value="squat-c-2022">
-                            <label for="squatC">Squat C</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Role:</h2>
-                <ul class="filter-item">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="role" id="student">
-                            <label for="student">Student</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="role" id="lecturer">
-                            <label for="lecturer">Lecturer</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="role" id="co-teacher">
-                            <label for="co-teacher">Co-teacher</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Stars:</h2>
-                <ul class="filter-item">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="stars" id="starLow">
-                            <label for="starLow">0 - 3</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="stars" id="starMid">
-                            <label for="starMid">4 - 7</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="stars" id="starHigh">
-                            <label for="starHigh">8 ></label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Cohort:</h2>
-                <ul class="filter-item">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="cohort" id="cohortFirst">
-                            <label for="starLow">2021</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="cohort" id="cohortSecond">
-                            <label for="starMid">2022</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Sort by:</h2>
-                <select name="sorting" id="sorting">
-                    <option default value="name-AZ">Name (A-Z)</option>
-                    <option value="name-ZA">Name (Z-A)</option>
-                    <option value="likes-ASC">Likes (ASC)</option>
-                    <option value="likes-DESC">Likes (DESC)</option>
-                    <option value="stars-ASC">Stars (ASC)</option>
-                    <option value="stars-DESC">Stars (DESC)</option>
-                </select>
-            </div>
-            <input type="submit" value="Filter">
-        </form>
-        
-    </div>
-</aside>
+<%- include('./partials/heading') %>
 
 <main>
     <!-- Cards collection -->
@@ -163,10 +33,12 @@
                         </div>
                         <div class="tag">
                             <div class="stars">
-                                <p>6</p>
+                                <p>
                                 <%-
                                     // console.log()
+                                    member.publicRepos
                                 %>
+                                </p>
                                 <img src="./assets/star.svg" alt="Star icon" class="star">
                             </div>
                         </div>
