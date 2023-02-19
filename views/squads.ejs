@@ -1,185 +1,57 @@
 <%- include ('./partials/head') %>
 
-<aside class="controls">
-    <!-- Controls heading -->
-    <div class="controls-heading">
-        <div class="filter-heading">
-            <img src="./assets/filter.svg" alt="Filter icon" class="filter-svg">
-            <h1>Filters</h1>
-        </div>
+<div class="content-wrapper">
+    <%- include('./partials/heading') %>
 
-        <!-- Search bar -->
-        <div class="search">
-            <input class="input-search" type="search" name="search" id="search" placeholder="Search">
-            <label for="search"><img src="./assets/mag.svg" alt="Search button" class="mag-svg"></label>
-        </div>
-    </div>
+    <main>
+        <!-- Cards collection -->
+        <section class="cards">
 
-    <!-- Filter menu - Collapsed on mobile -->
-    <div class="filter-options">
-
-        <form action="/FDND" method="get">
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Squad:</h2>
-                <ul class="filter-item" id="squad-filter">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="squad" id="squadA" value="squad-a-2022">
-                            <label for="squadA">Squad A</label>
+            <% squad.members.forEach(member => { %>
+                <div class="card">
+                    <div class="img-card">
+                        <% 
+                            const avatarUrl = member.avatar
+                            if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[")) { 
+                        %>
+                            <img src="<%= member.avatar %>" alt="" class="card-image">
+                        <% }else{ %>
+                            <img src="./assets/default.png" alt="" class="card-image">
+                        <% } %>
+                        <div class="subinfo">
+                            <p class="name"><%= member.name %></p>
+                            <p>Woonplaats</p>
+                            <p>Leeftijd</p>
                         </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="squad" id="squadB" value="squad-b-2022">
-                            <label for="squadB">Squad B</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="squad" id="squatC" value="squat-c-2022">
-                            <label for="squatC">Squat C</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Role:</h2>
-                <ul class="filter-item">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="role" id="student" value="student">
-                            <label for="student">Student</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="role" id="lecturer" value="lecturer">
-                            <label for="lecturer">Lecturer</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="role" id="co-teacher" value="co-teacher">
-                            <label for="co-teacher">Co-teacher</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Stars:</h2>
-                <ul class="filter-item">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="stars" id="starLow">
-                            <label for="starLow">0 - 3</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="stars" id="starMid">
-                            <label for="starMid">4 - 7</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="stars" id="starHigh">
-                            <label for="starHigh">8 ></label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Cohort:</h2>
-                <ul class="filter-item">
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="cohort" id="cohortFirst">
-                            <label for="starLow">2021</label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="filter-option">
-                            <input type="checkbox" name="cohort" id="cohortSecond">
-                            <label for="starMid">2022</label>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Filter category -->
-            <div class="filter-category">
-                <h2>Sort by:</h2>
-                <select name="sorting" id="sorting">
-                    <option default value="name-AZ">Name (A-Z)</option>
-                    <option value="name-ZA">Name (Z-A)</option>
-                    <option value="likes-ASC">Likes (ASC)</option>
-                    <option value="likes-DESC">Likes (DESC)</option>
-                    <option value="stars-ASC">Stars (ASC)</option>
-                    <option value="stars-DESC">Stars (DESC)</option>
-                </select>
-            </div>
-            <input type="submit" value="Filter">
-        </form>
-        
-    </div>
-</aside>
-
-<main>
-    <!-- Cards collection -->
-    <section class="cards">
-
-        <% squad.members.forEach(member => { %>
-            <div class="card">
-                <div class="img-card">
-                    <% 
-                        const avatarUrl = member.avatar
-                        if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[")) { 
-                    %>
-                        <img src="<%= member.avatar %>" alt="" class="card-image">
-                    <% }else{ %>
-                        <img src="./assets/default.png" alt="" class="card-image">
-                    <% } %>
-                    <div class="subinfo">
-                        <p class="name"><%= member.name %></p>
-                        <p>Woonplaats</p>
-                        <p>Leeftijd</p>
                     </div>
-                </div>
-                <div class="info">
-                    <div class="tags">
-                        <div class="tag">
-                            <p><%= squad.name %></p>
-                        </div>
-                        <div class="tag">
-                            <p><%= member.role %></p>
-                        </div>
-                        <div class="tag">
-                            <div class="stars">
-                                <p>
-                                <%-
-                                    // console.log()
-                                    member.publicRepos
-                                %>
-                                </p>
-                                <img src="./assets/star.svg" alt="Star icon" class="star">
+                    <div class="info">
+                        <div class="tags">
+                            <div class="tag">
+                                <p><%= squad.name %></p>
                             </div>
+                            <div class="tag">
+                                <p><%= member.role %></p>
+                            </div>
+                            <div class="tag">
+                                <div class="stars">
+                                    <p>
+                                    <%-
+                                        // console.log()
+                                        member.publicRepos
+                                    %>
+                                    </p>
+                                    <img src="./assets/star.svg" alt="Star icon" class="star">
+                                </div>
+                            </div>
+                            <div class="tag">
+                                <p><%= squad.cohort %></p>
+                            </div> 
                         </div>
-                        <div class="tag">
-                            <p><%= squad.cohort %></p>
-                        </div> 
                     </div>
                 </div>
-            </div>
-        <% }) %>
-    </section>
-</main>
+            <% }) %>
+        </section>
+    </main>
+</div>
 
 <%- include ('./partials/foot') %>
