@@ -94,24 +94,81 @@ app.get('/members', async (req, res) => {
     const dataDisplay = data.members.filter((eventData) => {
 
         // console.log(req.query)
-        // console.log(eventData.role)
+        // console.log(eventData)
+        console.log(req.query.squad)
+        console.log(req.query.role)
+        console.log(req.query.cohort)
 
-        // If no squad filter is chosen, check if role filter is chosen. Else, check if squad filter matches with data
-        if (!req.query.squad) {
-            // If no role filter is chosen, check if cohort filter is chosen. Else, check if role filter matches with data
-            if (!req.query.role) {
-                // If no cohort filter is chosen, return all data. Else, check if cohort filter matches with data
-                if (!req.query.cohort) {
-                    return eventData;
-                }else if (eventData.squads[0].cohort.toLowerCase().includes(req.query.cohort.toLowerCase())) { 
-                    return eventData;
-                }
-            } else if (eventData.role.includes(req.query.role.toLowerCase())) {
-                return eventData;
-            }
-        } else if (eventData.squads[0].slug.toLowerCase().includes(req.query.squad.toLowerCase())) {
-            return eventData;
+        let squadFilterCheck
+        let roleFilterCheck
+        let cohortFilterCheck
+
+        if (req.query.squad) {
+            squadFilterCheck = eventData.squads[0].slug.toLowerCase().includes(req.query.squad.toLowerCase())
         }
+
+        if (req.query.role) {
+            roleFilterCheck = eventData.role.includes(req.query.role.toLowerCase())
+        }
+
+        if (req.query.cohort) {
+            cohortFilterCheck = eventData.squads[0].cohort.toLowerCase().includes(req.query.cohort.toLowerCase())
+        }
+
+        // If squad filter is used return eventData
+        // if (req.query.squad && eventData.squads[0].slug.toLowerCase().includes(req.query.squad.toLowerCase())) {
+        //     return eventData
+        // }
+
+        // If role filter is used return eventData
+        // if (req.query.role && eventData.role.includes(req.query.role.toLowerCase())) {
+        //     return eventData
+        // }
+
+        // If cohort filter is used return eventData
+        // if (req.query.cohort && eventData.squads[0].cohort.toLowerCase().includes(req.query.cohort.toLowerCase())) {
+        //     return eventData
+        // }
+
+        // return
+
+        // If-ception
+        // If all filters are set
+        if (req.query.squad && req.query.role && req.query.cohort && squadFilterCheck && roleFilterCheck && cohortFilterCheck) {
+            return eventData
+        }
+
+        // If squad filter & role filter is set
+        if (req.query.squad && req.query.role && squadFilterCheck && roleFilterCheck && !req.query.cohort) {
+            return eventData
+        }
+
+        // If squad filter & cohort filter is set
+        if (req.query.squad && req.query.cohort && squadFilterCheck && cohortFilterCheck && !req.query.role) {
+            return eventData
+        }
+
+        // If role filter & cohort filter is set
+        if (req.query.role && req.query.cohort && roleFilterCheck && cohortFilterCheck && !req.query.squad) {
+            return eventData
+        }
+
+        // If squad filter is set
+        if (req.query.squad && squadFilterCheck && !req.query.role && !req.query.cohort) {
+            return eventData
+        }
+
+        // If role filter is set
+        if (req.query.role && roleFilterCheck && !req.query.squad && !req.query.cohort) {
+            return eventData
+        }
+
+        // If cohort is set
+        if (req.query.cohort && cohortFilterCheck && !req.query.squad && !req.query.role) {
+            return eventData
+        }
+
+        return
     })
 
     dataDisplay.forEach(member => {
@@ -119,9 +176,7 @@ app.get('/members', async (req, res) => {
         member.publicRepos = Math.floor(Math.random() * 20)
     });
 
-    res.render('members', {
-        dataDisplay
-    })
+    res.render('members', {dataDisplay})
 })
 
 app.set('port', process.env.PORT || 8000)
