@@ -84,25 +84,23 @@ app.get('/FDND', async (req, res) => {
 // Test using filter() method
 app.get('/members', async (req, res) => {
 
+    let direction
+    let sortingFilter = req.query.orderBy
+
     // Base url for API call
-    const testUrl = "https://whois.fdnd.nl/api/v1/members?first=100"
+    let testUrl = "https://whois.fdnd.nl/api/v1/members?first=100"
 
     // API call for fetching data
     const data = await dataFetch(testUrl)
 
     // Filter data for members based on chosen filters
-    const dataDisplay = data.members.filter((eventData) => {
-
-        // console.log(req.query)
-        // console.log(eventData)
-        console.log(req.query.squad)
-        console.log(req.query.role)
-        console.log(req.query.cohort)
+    let dataDisplay = data.members.filter((eventData) => {
 
         let squadFilterCheck
         let roleFilterCheck
         let cohortFilterCheck
 
+        // Assign checks for correct data to variable for easier use
         if (req.query.squad) {
             squadFilterCheck = eventData.squads[0].slug.toLowerCase().includes(req.query.squad.toLowerCase())
         }
@@ -115,22 +113,6 @@ app.get('/members', async (req, res) => {
             cohortFilterCheck = eventData.squads[0].cohort.toLowerCase().includes(req.query.cohort.toLowerCase())
         }
 
-        // If squad filter is used return eventData
-        // if (req.query.squad && eventData.squads[0].slug.toLowerCase().includes(req.query.squad.toLowerCase())) {
-        //     return eventData
-        // }
-
-        // If role filter is used return eventData
-        // if (req.query.role && eventData.role.includes(req.query.role.toLowerCase())) {
-        //     return eventData
-        // }
-
-        // If cohort filter is used return eventData
-        // if (req.query.cohort && eventData.squads[0].cohort.toLowerCase().includes(req.query.cohort.toLowerCase())) {
-        //     return eventData
-        // }
-
-        // return
 
         // If-ception
         // If all filters are set
@@ -168,15 +150,44 @@ app.get('/members', async (req, res) => {
             return eventData
         }
 
+        // If no filter is set
+        if(!req.query.squad && !req.query.role && !req.query.cohort) {
+            return eventData
+        }
+
         return
     })
+
+    // Assign correct values based on chosen sorting option
+    switch (sortingFilter) {
+        case "name-AZ":
+            sortingFilter = "name"
+            direction = "ASC"
+            break;
+
+        case "name-ZA":
+            sortingFilter = "name"
+            direction = "DESC"
+            break;
+    }
+
+    // Sort data based on chosen sorting option
+    const sortedData = dataDisplay.sort((a, b) => {
+        if (direction === "DESC") {
+            return a.name.toLowerCase() <= b.name.toLowerCase() ? 1 : -1
+        }else{
+            return a.name.toLowerCase() >= b.name.toLowerCase() ? 1 : -1
+        }
+    })
+
+    // console.log(sortedData)
 
     dataDisplay.forEach(member => {
         // Random number generator
         member.publicRepos = Math.floor(Math.random() * 20)
     });
 
-    res.render('members', {dataDisplay})
+    res.render('members', {sortedData})
 })
 
 app.set('port', process.env.PORT || 8000)

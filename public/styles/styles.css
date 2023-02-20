@@ -304,6 +304,10 @@ body {
         width: 13em;
         justify-content: flex-start;
         row-gap: 2em;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        left: 0;
     }
 
     .controls-heading{
