@@ -1,19 +1,21 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 
+// Default url for member API call
 const urlMember = "https://whois.fdnd.nl/api/v1/"
-const urlSquad = "https://whois.fdnd.nl/api/v1/squad/"
+const city = ['Amsterdam', 'Den-Haag', 'Rotterdam', 'Groningen', 'Utrecht', 'Hilversum', 'Alkmaar', 'Leiden']
 
+// Create a new express app
 const app = express()
 
+// Set the view engine of the app to ejs
 app.set('view engine', 'ejs')
+// Set the location of the views folder
 app.set('views', './views')
-
+// Set the location of the public folder with static files
 app.use(express.static('public'))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-    extended: true
-}))
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', async (req, res) => {
 
@@ -23,62 +25,13 @@ app.get('/', async (req, res) => {
     data.members.forEach(member => {
         // Random number generator
         member.publicRepos = Math.floor(Math.random() * 20)
+        member.age = Math.floor(Math.random() * 10) + 18
+        member.city = city[Math.floor(Math.random() * city.length)]
     });
 
     console.log(data)
 
-    res.render('index', {
-        data
-    })
-})
-
-app.get('/FDND', async (req, res) => {
-    let slug = req.query.squad || "squat-c-2022"
-    let roleFilter = req.query.role
-    let cohortFilter = req.query.cohort
-    let sortingFilter = req.query.orderBy
-    let direction
-    // let filterUrl
-
-    // Assign correct values based on chosen sorting option
-    switch (sortingFilter) {
-        case "name-AZ":
-            sortingFilter = "name"
-            direction = "ASC"
-            break;
-
-        case "name-ZA":
-            sortingFilter = "name"
-            direction = "DESC"
-            break;
-    }
-
-    // Assign correct values based on chosen role filter
-    switch (roleFilter) {
-        case "student":
-            roleFilter = "student"
-            break;
-
-        case "lecturer":
-            roleFilter = "lecturer"
-            break;
-
-        case "co_teacher":
-            roleFilter = "co_teacher"
-            break;
-    }
-
-    let squadUrl = urlSquad + slug
-
-    // API call for fetching data based on chosen filters
-    const data = await dataFetch(squadUrl)
-
-    // Generate a random number for each member to use as fake data for public repos
-    data.squad.members.forEach(member => {
-        member.publicRepos = Math.floor(Math.random() * 20)
-    });
-
-    res.render('squads', data)
+    res.render('index', {data})
 })
 
 // Test using filter() method
@@ -180,11 +133,11 @@ app.get('/members', async (req, res) => {
         }
     })
 
-    // console.log(sortedData)
-
     dataDisplay.forEach(member => {
         // Random number generator
         member.publicRepos = Math.floor(Math.random() * 20)
+        member.age = Math.floor(Math.random() * 10) + 18
+        member.city = city[Math.floor(Math.random() * city.length)]
     });
 
     res.render('members', {sortedData})
@@ -196,6 +149,7 @@ app.listen(app.get('port'), function () {
     console.log(`Application started on http://localhost:${app.get('port')}`)
 })
 
+// Api call function
 async function dataFetch(url) {
     const data = await fetch(url)
         .then((response) => response.json())

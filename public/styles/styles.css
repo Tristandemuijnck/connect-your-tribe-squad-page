@@ -59,11 +59,17 @@ body {
     position: relative;
 }
 
-.controls-heading{
+.controls-heading {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     z-index: 5;
+}
+
+.filter-heading:hover{
+    transition: transform 250ms ease;
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .filter-heading {
@@ -90,13 +96,19 @@ body {
     gap: 1.5em;
 }
 
+.filters label:hover{
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 .filter-options {
     display: flex;
     flex-wrap: wrap;
     gap: 2em;
     position: absolute;
-    top: -100em;
-    left: 0;
+    top: 0;
+    left: -100em;
     background-color: var(--dark-grey);
     z-index: 3;
 }
@@ -105,6 +117,8 @@ body {
     padding-top: 2em;
     position: relative;
     top: 0;
+    left: 0;
+    transition: 150ms ease-out;
 }
 
 .filter-open::before{
@@ -139,6 +153,14 @@ body {
     padding: 0.5em 0.8em;
     margin-top: 1em;
     max-height: 2em;
+}
+
+.filter-submit:hover{
+    background: var(--dark-grey);
+    cursor: pointer;
+    border: solid var(--teal) 1px;
+    color: var(--teal);
+    font-weight: 600;
 }
 
 .search{
@@ -183,6 +205,13 @@ body {
     padding: 0.7em;
     gap: 1em;
 
+}
+
+.card:hover{
+    box-shadow: 5px 9px 10px -4px var(--dark-teal);
+    cursor: pointer;
+    transition: 250ms ease;
+    transform: scale(1.02);
 }
 
 .img-card{
@@ -267,7 +296,7 @@ body {
 @media (min-width: 60em){
     .filter-options {
         position: relative;
-        top: 0;
+        left: 0;
     }
 
     .filter-category{
@@ -281,7 +310,7 @@ body {
     .filter-open{
         padding-top: 0;
         position: relative;
-        top: 0;
+        left: 0;
     }
 
     .filter-open::before{

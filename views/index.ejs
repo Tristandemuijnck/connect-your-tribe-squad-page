@@ -12,7 +12,7 @@
                     <div class="img-card">
                         <% 
                             const avatarUrl = member.avatar
-                            if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[")) { 
+                            if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[") && !avatarUrl.includes("search")) { 
                         %>
                             <img src="<%= member.avatar %>" alt="" class="card-image">
                         <% }else{ %>
@@ -20,8 +20,8 @@
                         <% } %>
                         <div class="subinfo">
                             <p class="name"><%= member.name %></p>
-                            <p>Woonplaats</p>
-                            <p>Leeftijd</p>
+                            <p><%= member.city %></p>
+                            <p><%= member.age %></p>
                         </div>
                     </div>
                     <div class="info">
@@ -35,10 +35,7 @@
                             <div class="tag">
                                 <div class="stars">
                                     <p>
-                                    <%-
-                                        // console.log()
-                                        member.publicRepos
-                                    %>
+                                    <%- member.publicRepos %>
                                     </p>
                                     <img src="./assets/star.svg" alt="Star icon" class="star">
                                 </div>

@@ -7,12 +7,25 @@
         <!-- Cards collection -->
         <section class="cards">
 
+            <% if (sortedData == "") {%>
+                <div class="card">
+                    <div class="img-card">
+                        <img src="./assets/default.png" alt="" class="card-image">
+                        <div class="subinfo">
+                            <p class="name">Geen resultaat gevonden</p>
+                        </div>
+                    </div>
+                </div>
+            <%
+            }
+            %>
+
             <% sortedData.forEach(member => { %>
                 <div class="card">
                     <div class="img-card">
                         <% 
                             const avatarUrl = member.avatar
-                            if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[")) { 
+                            if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[") && !avatarUrl.includes("search")) { 
                         %>
                             <img src="<%= member.avatar %>" alt="" class="card-image">
                         <% }else{ %>
@@ -20,8 +33,8 @@
                         <% } %>
                         <div class="subinfo">
                             <p class="name"><%= member.name %></p>
-                            <p>Woonplaats</p>
-                            <p>Leeftijd</p>
+                            <p><%= member.city %></p>
+                            <p><%= member.age %></p>
                         </div>
                     </div>
                     <div class="info">
