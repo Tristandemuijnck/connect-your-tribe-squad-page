@@ -7,7 +7,7 @@ Squad page
 Dit is de repository van mijn uitvoering van connect-your-tribe-squad-page - Squad page.
 
 ### Preview
-<img src="" width=700>
+<img src="https://user-images.githubusercontent.com/43402897/220588693-3b528b13-d958-47b6-a499-c92ef552b2a7.png" width=700>
 
 ## :mag: Kenmerken
 
