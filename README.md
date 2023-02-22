@@ -17,13 +17,16 @@ Voor de layout maak ik gebruik van:
 
   - EJS om partials in te laden voor de header, sorting filter en footer
   
-### :art: CSS
+### Node
+Node is een JavaScript runtime omgeving waarmee JavaScript buiten de browser kan worden uitgevoerd. Met Node js kun je gebruik maken van server side scripting en command-line tools.
 
+### Express
+Express Js is een Node js framework.
+Express helpt bij het verwerken van API requests en responses. 
 
-
-### :loop: JavaScript
-
-
+### EJS
+EJS is een templating language voor het genereren van HTML met JavaScript.
+Het zorgt ervoor dat ik HTML files kan renderen met JavaScript data. Ook kan ik gebruik maken van partials om mijn HTML code zo DRY mogelijk te maken.
 
 ## Live versie
 Voor een live versie van het project: wandering-pike-sweatshirt.cyclic.app/
