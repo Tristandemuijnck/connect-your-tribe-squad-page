@@ -29,7 +29,7 @@ EJS is een templating language voor het genereren van HTML met JavaScript.
 Het zorgt ervoor dat ik HTML files kan renderen met JavaScript data. Ook kan ik gebruik maken van partials om mijn HTML code zo DRY mogelijk te maken.
 
 ## Live versie
-Voor een live versie van het project: wandering-pike-sweatshirt.cyclic.app/
+Voor een live versie van het project: https://wandering-pike-sweatshirt.cyclic.app/
 
 ## Licentie
 
