@@ -26,7 +26,7 @@ Voor de layout maak ik gebruik van:
 
 
 ## Live versie
-Voor een live versie van het project: 
+Voor een live versie van het project: wandering-pike-sweatshirt.cyclic.app/
 
 ## Licentie
 
