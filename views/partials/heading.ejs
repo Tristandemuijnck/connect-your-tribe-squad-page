@@ -18,31 +18,31 @@
                 <ul class="filter-item" id="squad-filter">
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="squad" id="squadA" value="squad-a-2022">
+                            <input type="radio" name="squad" id="squadA" value="squad-a-2022" <% if (queryData.squad == 'squad-a-2022') { %> checked <% } %>>
                             <label for="squadA">Squad A</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="squad" id="squadB" value="squad-b-2022">
+                            <input type="radio" name="squad" id="squadB" value="squad-b-2022" <% if (queryData.squad == 'squad-b-2022') { %> checked <% } %>>
                             <label for="squadB">Squad B</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="squad" id="squatC" value="squat-c-2022">
+                            <input type="radio" name="squad" id="squatC" value="squat-c-2022" <% if (queryData.squad == 'squat-c-2022') { %> checked <% } %>>
                             <label for="squatC">Squat C</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="squad" id="founders" value="founders-2021">
+                            <input type="radio" name="squad" id="founders" value="founders-2021" <% if (queryData.squad == 'founders-2021') { %> checked <% } %>>
                             <label for="founders">Founders</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="squad" id="minorWeb" value="minor-web-2023">
+                            <input type="radio" name="squad" id="minorWeb" value="minor-web-2023" <% if (queryData.squad == 'minor-web-2023') { %> checked <% } %>>
                             <label for="minorWeb">Minor Web</label>
                         </div>
                     </li>
@@ -55,19 +55,19 @@
                 <ul class="filter-item">
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="role" id="student" value="student">
+                            <input type="radio" name="role" id="student" value="student" <% if (queryData.role == 'student') { %> checked <% } %>>
                             <label for="student">Student</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="role" id="lecturer" value="lecturer">
+                            <input type="radio" name="role" id="lecturer" value="lecturer" <% if (queryData.role == 'lecturer') { %> checked <% } %>>
                             <label for="lecturer">Lecturer</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="role" id="co-teacher" value="co_teacher">
+                            <input type="radio" name="role" id="co-teacher" value="co_teacher" <% if (queryData.role == 'co_teacher') { %> checked <% } %>>
                             <label for="co-teacher">Co-teacher</label>
                         </div>
                     </li>
@@ -80,19 +80,19 @@
                 <ul class="filter-item">
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="cohort" id="cohortFirst" value="2021">
+                            <input type="radio" name="cohort" id="cohortFirst" value="2021" <% if (queryData.cohort == '2021') { %> checked <% } %>>
                             <label for="cohortFirst">2021</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="cohort" id="cohortSecond" value="2022">
+                            <input type="radio" name="cohort" id="cohortSecond" value="2022" <% if (queryData.cohort == '2022') { %> checked <% } %>>
                             <label for="cohortSecond">2022</label>
                         </div>
                     </li>
                     <li>
                         <div class="filter-option">
-                            <input type="radio" name="cohort" id="cohortThird" value="2023">
+                            <input type="radio" name="cohort" id="cohortThird" value="2023" <% if (queryData.cohort == '2023') { %> checked <% } %>>
                             <label for="cohortThird">2023</label>
                         </div>
                     </li>

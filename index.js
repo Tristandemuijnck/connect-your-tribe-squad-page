@@ -39,6 +39,7 @@ app.get('/members', async (req, res) => {
 
     let direction
     let sortingFilter = req.query.orderBy
+    let queryData = req.query
 
     // Base url for API call
     let testUrl = "https://whois.fdnd.nl/api/v1/members?first=100"
@@ -140,7 +141,7 @@ app.get('/members', async (req, res) => {
         member.city = city[Math.floor(Math.random() * city.length)]
     });
 
-    res.render('members', {sortedData})
+    res.render('members', {sortedData, queryData})
 })
 
 app.set('port', process.env.PORT || 8000)
