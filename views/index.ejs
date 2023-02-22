@@ -7,11 +7,13 @@
         <!-- Cards collection -->
         <section class="cards">
 
+            <!-- Make a card for each member based on API data -->
             <% data.members.forEach(member => { %>
                 <div class="card">
                     <div class="img-card">
                         <% 
                             const avatarUrl = member.avatar
+                            // Filters for avatar URLs
                             if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[") && !avatarUrl.includes("search")) { 
                         %>
                             <img src="<%= member.avatar %>" alt="" class="card-image">

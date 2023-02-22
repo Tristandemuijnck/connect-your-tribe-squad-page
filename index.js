@@ -22,6 +22,7 @@ app.get('/', async (req, res) => {
     const addonUrl = urlMember + "members?first=100"
     const data = await dataFetch(addonUrl)
 
+    // Add custom variables to the existing data object for each member
     data.members.forEach(member => {
         // Random number generator
         member.publicRepos = Math.floor(Math.random() * 20)
@@ -133,6 +134,7 @@ app.get('/members', async (req, res) => {
         }
     })
 
+    // Add custom variables to the existing data object for each member
     dataDisplay.forEach(member => {
         // Random number generator
         member.publicRepos = Math.floor(Math.random() * 20)
