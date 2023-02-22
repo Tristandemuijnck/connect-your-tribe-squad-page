@@ -1,31 +1,35 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
+# Squad page
 
-# Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
-
-## Inhoudsopgave
-
-  * [Beschrijving](#beschrijving)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Gebruik](#gebruik)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+## Titel
+Squad page
 
 ## Beschrijving
-<!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+Dit is de repository van mijn uitvoering van connect-your-tribe-squad-page - Squad page.
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
+### Preview
+<img src="https://user-images.githubusercontent.com/43402897/220588693-3b528b13-d958-47b6-a499-c92ef552b2a7.png" width=700>
 
-## Installatie
-<!-- Bij Installatie staat stap-voor-stap beschreven hoe je de development omgeving moet inrichten om aan de repository te kunnen werken. -->
+## :mag: Kenmerken
 
-## Gebruik
+### :page_facing_up: HTML
 
-## Bronnen
+Voor de layout maak ik gebruik van: 
+
+  - EJS om partials in te laden voor de header, sorting filter en footer
+  
+### Node
+Node is een JavaScript runtime omgeving waarmee JavaScript buiten de browser kan worden uitgevoerd. Met Node js kun je gebruik maken van server side scripting en command-line tools.
+
+### Express
+Express Js is een Node js framework.
+Express helpt bij het verwerken van API requests en responses. 
+
+### EJS
+EJS is een templating language voor het genereren van HTML met JavaScript.
+Het zorgt ervoor dat ik HTML files kan renderen met JavaScript data. Ook kan ik gebruik maken van partials om mijn HTML code zo DRY mogelijk te maken.
+
+## Live versie
+Voor een live versie van het project: wandering-pike-sweatshirt.cyclic.app/
 
 ## Licentie
 
