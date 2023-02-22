@@ -93,7 +93,8 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    column-gap: 2em;
+    row-gap: 0.6em;
 }
 
 .filters label:hover{
@@ -161,6 +162,22 @@ body {
     border: solid var(--teal) 1px;
     color: var(--teal);
     font-weight: 600;
+}
+
+.reset-btn{
+    background: var(--dark-grey);
+    border: 1px solid var(--teal);
+    border-radius: 0.3em;
+    padding: 0.4em 0.8em;
+    color: var(--teal);
+    max-height: 2em;
+    font-weight: 600;
+}
+
+.reset-btn:hover{
+    background: var(--teal);
+    color: var(--dark-grey);
+    cursor: pointer;
 }
 
 .search{
@@ -298,6 +315,7 @@ body {
     .filter-options {
         position: relative;
         left: 0;
+        gap: 0.6em;
     }
 
     .filter-category{
@@ -334,7 +352,7 @@ body {
         width: 13em;
         justify-content: flex-start;
         row-gap: 2em;
-        height: 100%;
+        height: 100vh;
         position: sticky;
         top: 0;
         left: 0;

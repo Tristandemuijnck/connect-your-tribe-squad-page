@@ -40,26 +40,36 @@
                         </div>
                         <div class="info">
                             <div class="tags">
-                                <div class="tag">
-                                    <p><%= member.squads[0].name %></p>
-                                </div>
-                                <div class="tag">
-                                    <p><%= member.role %></p>
-                                </div>
+                                <%# Get all squads for a member %>
+                                <% member.squads.forEach(squad => { %>
+                                    <div class="tag">
+                                        <p><%= squad.name %></p>
+                                    </div>
+                                <% }) %>
+
+                                <%# Get all roles for a member %>
+                                <% for (let i = 0; i < member.role.length; i++) {
+                                    const memberRole = member.role[i];
+                                %>
+                                    <div class="tag">
+                                        <p><%= memberRole %></p>
+                                    </div>
+                                <% } %>
+
                                 <div class="tag">
                                     <div class="stars">
                                         <p>
-                                        <%-
-                                            // console.log()
-                                            member.publicRepos
-                                        %>
+                                        <%- member.publicRepos %>
                                         </p>
                                         <img src="./assets/star.svg" alt="Star icon" class="star">
                                     </div>
                                 </div>
-                                <div class="tag">
-                                    <p><%= member.squads[0].cohort %></p>
-                                </div> 
+                                <%# Get all cohorts for a member %>
+                                <% member.squads.forEach(squad => { %>
+                                    <div class="tag">
+                                        <p><%= squad.cohort %></p>
+                                    </div>
+                                <% }) %>
                             </div>
                         </div>
                     </div>

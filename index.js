@@ -19,8 +19,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', async (req, res) => {
 
-    const addonUrl = urlMember + "members?first=100"
+    const addonUrl = urlMember + "members?first=200"
     const data = await dataFetch(addonUrl)
+    let queryData = req.query
 
     data.members.forEach(member => {
         // Random number generator
@@ -29,9 +30,7 @@ app.get('/', async (req, res) => {
         member.city = city[Math.floor(Math.random() * city.length)]
     });
 
-    console.log(data)
-
-    res.render('index', {data})
+    res.render('index', {data, queryData})
 })
 
 // Test using filter() method
@@ -42,7 +41,7 @@ app.get('/members', async (req, res) => {
     let queryData = req.query
 
     // Base url for API call
-    let testUrl = "https://whois.fdnd.nl/api/v1/members?first=100"
+    let testUrl = "https://whois.fdnd.nl/api/v1/members?first=200"
 
     // API call for fetching data
     const data = await dataFetch(testUrl)
@@ -56,15 +55,37 @@ app.get('/members', async (req, res) => {
 
         // Assign checks for correct data to variable for easier use
         if (req.query.squad) {
-            squadFilterCheck = eventData.squads[0].slug.toLowerCase().includes(req.query.squad.toLowerCase())
+            // squadFilterCheck = eventData.squads[0].slug.toLowerCase().includes(req.query.squad.toLowerCase())
+
+            // If any squad matches the filter
+            eventData.squads.forEach(squad => {
+                if (squad.slug.toLowerCase().includes(req.query.squad.toLowerCase())) {
+                    squadFilterCheck = true
+                }
+            });
         }
 
         if (req.query.role) {
-            roleFilterCheck = eventData.role.includes(req.query.role.toLowerCase())
+            // roleFilterCheck = eventData.role.includes(req.query.role.toLowerCase())
+
+            // If any role matches the filter
+            for (let i = 0; i < eventData.role.length; i++) {
+                const memberRole = eventData.role[i];
+                if (memberRole.toLowerCase().includes(req.query.role.toLowerCase())) {
+                    roleFilterCheck = true
+                }
+            }
         }
 
         if (req.query.cohort) {
-            cohortFilterCheck = eventData.squads[0].cohort.toLowerCase().includes(req.query.cohort.toLowerCase())
+            // cohortFilterCheck = eventData.squads[0].cohort.toLowerCase().includes(req.query.cohort.toLowerCase())
+
+            // If any cohort matches the filter
+            eventData.squads.forEach(squad => {
+                if (squad.cohort.toLowerCase().includes(req.query.cohort.toLowerCase())) {
+                    cohortFilterCheck = true
+                }
+            });
         }
 
 
