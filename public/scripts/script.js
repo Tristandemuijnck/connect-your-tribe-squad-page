@@ -9,7 +9,7 @@ const checkboxes = document.querySelectorAll('.filter-option input[type="radio"]
 const form = document.querySelector('.filters')
 
 checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', () => form.submit());
+    checkbox.addEventListener('change', () => {
+        form.submit()
+    })
 })
-
-console.log(window.location.href)

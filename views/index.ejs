@@ -8,44 +8,46 @@
         <section class="cards">
 
             <% data.members.forEach(member => { %>
-                <div class="card">
-                    <div class="img-card">
-                        <% 
-                            const avatarUrl = member.avatar
-                            if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[") && !avatarUrl.includes("search")) { 
-                        %>
-                            <img src="<%= member.avatar %>" alt="" class="card-image">
-                        <% }else{ %>
-                            <img src="./assets/default.png" alt="" class="card-image">
-                        <% } %>
-                        <div class="subinfo">
-                            <p class="name"><%= member.name %></p>
-                            <p><%= member.city %></p>
-                            <p><%= member.age %></p>
+                <a class="card-link" href="<%- member.website %>" target="_blank">
+                    <div class="card">
+                        <div class="img-card">
+                            <% 
+                                const avatarUrl = member.avatar
+                                if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[") && !avatarUrl.includes("search")) { 
+                            %>
+                                <img src="<%= member.avatar %>" alt="" class="card-image">
+                            <% }else{ %>
+                                <img src="./assets/default.png" alt="" class="card-image">
+                            <% } %>
+                            <div class="subinfo">
+                                <p class="name"><%= member.name %></p>
+                                <p><%= member.city %></p>
+                                <p><%= member.age %></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info">
-                        <div class="tags">
-                            <div class="tag">
-                                <p><%= member.squads[0].name %></p>
-                            </div>
-                            <div class="tag">
-                                <p><%= member.role %></p>
-                            </div>
-                            <div class="tag">
-                                <div class="stars">
-                                    <p>
-                                    <%- member.publicRepos %>
-                                    </p>
-                                    <img src="./assets/star.svg" alt="Star icon" class="star">
+                        <div class="info">
+                            <div class="tags">
+                                <div class="tag">
+                                    <p><%= member.squads[0].name %></p>
                                 </div>
+                                <div class="tag">
+                                    <p><%= member.role %></p>
+                                </div>
+                                <div class="tag">
+                                    <div class="stars">
+                                        <p>
+                                        <%- member.publicRepos %>
+                                        </p>
+                                        <img src="./assets/star.svg" alt="Star icon" class="star">
+                                    </div>
+                                </div>
+                                <div class="tag">
+                                    <p><%= member.squads[0].cohort %></p>
+                                </div> 
                             </div>
-                            <div class="tag">
-                                <p><%= member.squads[0].cohort %></p>
-                            </div> 
                         </div>
                     </div>
-                </div>
+                </a>
             <% }) %>
         </section>
     </main>
