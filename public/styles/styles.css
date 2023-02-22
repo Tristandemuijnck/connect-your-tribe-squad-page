@@ -188,8 +188,6 @@ body {
 .cards{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(19em, 1fr));
-    /* flex-direction: row;
-    flex-wrap: wrap; */
     padding-bottom: 1em;
     gap: 0.5em;
 }
@@ -333,7 +331,7 @@ body {
         width: 13em;
         justify-content: flex-start;
         row-gap: 2em;
-        height: 100vh;
+        height: 100%;
         position: sticky;
         top: 0;
         left: 0;
