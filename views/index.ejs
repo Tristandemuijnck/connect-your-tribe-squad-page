@@ -9,12 +9,11 @@
 
         <!-- Make a card for each member based on API data -->
         <% data.members.forEach(member => { %>
-                
-          <% if (member.website){ %>
+        <% if (member.website){ %>
             <a href="<%= member.website %>">
-                <% } else { %>
-                    <a href="https://programma.fdnd.nl/">
-                        <% } %>
+        <% } else { %>
+            <a href="https://programma.fdnd.nl/">
+        <% } %>
                 <div class="card">
                     <div class="img-card">
                         <% 
@@ -31,44 +30,43 @@
                             <p><%= member.city %></p>
                             <p><%= member.age %></p>
                         </div>
-                        <div class="info">
-                            <div class="tags">
-                                <%# Get all squads for a member %>
-                                <% member.squads.forEach(squad => { %>
-                                    <div class="tag">
-                                        <p><%= squad.name %></p>
-                                    </div>
-                                <% }) %>
-                                
-                                <%# Get all roles for a member %>
-                                <% for (let i = 0; i < member.role.length; i++) {
-                                    const memberRole = member.role[i];
-                                %>
-                                    <div class="tag">
-                                        <p><%= memberRole %></p>
-                                    </div>
-                                <% } %>
-
+                    </div>
+                    <div class="info">
+                        <div class="tags">
+                            <%# Get all squads for a member %>
+                            <% member.squads.forEach(squad => { %>
                                 <div class="tag">
-                                    <div class="stars">
-                                        <p>
-                                        <%- member.publicRepos %>
-                                        </p>
-                                        <img src="./assets/star.svg" alt="Star icon" class="star">
-                                    </div>
+                                    <p><%= squad.name %></p>
                                 </div>
-                                <%# Get all cohorts for a member %>
-                                <% member.squads.forEach(squad => { %>
-                                    <div class="tag">
-                                        <p><%= squad.cohort %></p>
-                                    </div>
-                                <% }) %>
+                            <% }) %>
+                            
+                            <%# Get all roles for a member %>
+                            <% for (let i = 0; i < member.role.length; i++) {
+                                const memberRole = member.role[i];
+                            %>
+                                <div class="tag">
+                                    <p><%= memberRole %></p>
+                                </div>
+                            <% } %>
+
+                            <div class="tag">
+                                <div class="stars">
+                                    <p>
+                                    <%- member.publicRepos %>
+                                    </p>
+                                    <img src="./assets/star.svg" alt="Star icon" class="star">
+                                </div>
                             </div>
+                            <%# Get all cohorts for a member %>
+                            <% member.squads.forEach(squad => { %>
+                                <div class="tag">
+                                    <p><%= squad.cohort %></p>
+                                </div>
+                            <% }) %>
                         </div>
                     </div>
                 </div>
-            </a>
-
+                </a>
             <% }) %>
         </section>
     </main>
