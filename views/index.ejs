@@ -9,6 +9,14 @@
 
             <!-- Make a card for each member based on API data -->
             <% data.members.forEach(member => { %>
+                
+
+                <!-- const websiteUrl = member.website -->
+          <% if (member.website){ %>
+            <a href="<%= member.website %>">
+                <% } else { %>
+                    <a href="https://programma.fdnd.nl/">
+                        <% } %>
                 <div class="card">
                     <div class="img-card">
                         <% 
@@ -48,6 +56,8 @@
                         </div>
                     </div>
                 </div>
+            </a>
+
             <% }) %>
         </section>
     </main>
