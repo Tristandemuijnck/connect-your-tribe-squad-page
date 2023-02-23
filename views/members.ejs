@@ -7,6 +7,7 @@
         <!-- Cards collection -->
         <section class="cards">
 
+            <!-- If data is not present, default to no results found card -->
             <% if (sortedData == "") {%>
                 <div class="card">
                     <div class="img-card">
@@ -20,13 +21,20 @@
             }
             %>
 
+            <!-- If data is present, make a card for each member based on API data -->
             <% sortedData.forEach(member => { %>
                 <div class="flip-card">
                     <div class="flip-card-inner">
+                                <% if (member.website){ %>
+                <a href="<%= member.website %>">
+            <% } else { %>
+                <a href="https://programma.fdnd.nl/">
+            <% } %>
                         <div class="card">
                             <div class="img-card">
                                 <% 
                                     const avatarUrl = member.avatar
+                                    // Filters for avatar URLs
                                     if (avatarUrl !== "null" && avatarUrl && !avatarUrl.includes("[") && !avatarUrl.includes("search")) { 
                                 %>
                                     <img src="<%= member.avatar %>" alt="" class="card-image">
@@ -63,6 +71,7 @@
                                     </div> 
                                 </div>
                             </div>
+
                     </div>
                     <div class="card-back">
                         <% for (const [key, value] of Object.entries(member.bio || {})) {   %>
@@ -74,6 +83,7 @@
 
 
                 </div>
+                </a>
             <% }) %>
         </section>
     </main>

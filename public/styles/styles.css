@@ -93,7 +93,8 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5em;
+    column-gap: 2em;
+    row-gap: 0.6em;
 }
 
 .filters label:hover{
@@ -163,6 +164,22 @@ body {
     font-weight: 600;
 }
 
+.reset-btn{
+    background: var(--dark-grey);
+    border: 1px solid var(--teal);
+    border-radius: 0.3em;
+    padding: 0.4em 0.8em;
+    color: var(--teal);
+    max-height: 2em;
+    font-weight: 600;
+}
+
+.reset-btn:hover{
+    background: var(--teal);
+    color: var(--dark-grey);
+    cursor: pointer;
+}
+
 .search{
     display: flex;
     align-items: center;
@@ -188,10 +205,9 @@ body {
 .cards{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(19em, 1fr));
-    /* flex-direction: row;
-    flex-wrap: wrap; */
     padding-bottom: 1em;
     gap: 0.5em;
+    row-gap: 1.5em;
 }
 
 .card{
@@ -323,10 +339,11 @@ body {
     .filter-options {
         position: relative;
         left: 0;
+        gap: 0.6em;
     }
 
     .filter-category{
-        margin-bottom: 1.5em;
+        margin-bottom: .5em;
     }
 
     .filter-category h2{
@@ -359,7 +376,7 @@ body {
         width: 13em;
         justify-content: flex-start;
         row-gap: 2em;
-        height: 100vh;
+        height: 100%;
         position: sticky;
         top: 0;
         left: 0;
